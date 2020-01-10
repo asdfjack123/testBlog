@@ -15,7 +15,7 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">管理</h2>
-            <a href="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>Blog</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="mini home icon"></i>Blog</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分類</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>標籤</a>
             <div class="right m-item m-mobile-hide menu">
@@ -61,9 +61,9 @@
                 </tr>
             </thead>
             <tbody>
-            <tr th:each="type,iterStat : ${page.content}}">
+            <tr th:each="type,iterStat : ${page.content}">
                 <td th:text="${iterStat.count}">1</td>
-                <td th: text="${type.name}}">刻意練習清單</td>
+                <td th:text="${type.name}">刻意練習清單</td>
                 <td>
                     <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}" class="ui mini basic teal button">編輯</a>
                     <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.id})}" class="ui mini basic red button">刪除</a>
