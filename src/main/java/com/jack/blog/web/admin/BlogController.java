@@ -52,7 +52,7 @@ public class BlogController {
     @GetMapping("/blogs/input")
     public String input(Model model){
         model.addAttribute("types",typeService.listType());
-        model.addAttribute("tag",tagService.listTag());
+        model.addAttribute("tags",tagService.listTag());
         model.addAttribute("blog",new Blog());
 
         return INPUT;
