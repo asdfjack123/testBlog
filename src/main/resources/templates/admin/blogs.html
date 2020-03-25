@@ -113,7 +113,7 @@
                             <a onclick="page(this)" th:attr="date-page=${page.number}-1)" class="item" th:unless="${page.first}">上一頁</a>
                             <a onclick="page(this)" th:attr="date-page=${page.number}+1)" class="item" th:unless="${page.last}">下一頁</a>
                         </div>
-                        <a href="#" class="ui teal mini basic right floated button">新增</a>
+                        <a href="#" th:href="@{/admin/blogs/input}" class="ui teal mini basic right floated button">新增</a>
                     </th>
                 </tr>
             </tfoot>
