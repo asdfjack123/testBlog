@@ -40,6 +40,10 @@ public class Blog {
     @OneToMany(mappedBy = "blog")
     private List<Comment> comments = new ArrayList<>();
 
+    //不存數據庫
+    @Transient
+    private String tagIds;
+
     public Blog(){
 
     }
@@ -197,5 +201,13 @@ public class Blog {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';
+    }
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
     }
 }

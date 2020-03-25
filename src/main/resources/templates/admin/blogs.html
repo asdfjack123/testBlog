@@ -89,6 +89,7 @@
                     <th>標題</th>
                     <th>類型</th>
                     <th>推薦</th>
+                    <th>狀態</th>
                     <th>更新時間</th>
                     <th>操作</th>
                 </tr>
@@ -99,6 +100,7 @@
                 <td th:text="${blog.title}">刻意練習清單</td>
                 <td th:text="${blog.type.name}">知識</td>
                 <td th:text="${blog.recommend} ? '是' : '否'">是</td>
+                <td th:text="${blog.published} ? '發布' : '草稿'">發布</td>
                 <td th:text="${blog.updateTime}">2019-12-01 09:32</td>
                 <td>
                     <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini basic teal button">編輯</a>
@@ -108,16 +110,23 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="6">
+                    <th colspan="7">
                         <div class="ui mini pagination menu " th:if="${page.totalPages}>1">
-                            <a onclick="page(this)" th:attr="date-page=${page.number}-1)" class="item" th:unless="${page.first}">上一頁</a>
-                            <a onclick="page(this)" th:attr="date-page=${page.number}+1)" class="item" th:unless="${page.last}">下一頁</a>
+                            <a onclick="page(this)" th:attr="date-page=${page.number}-1" class="item" th:unless="${page.first}">上一頁</a>
+                            <a onclick="page(this)" th:attr="date-page=${page.number}+1" class="item" th:unless="${page.last}">下一頁</a>
                         </div>
+
                         <a href="#" th:href="@{/admin/blogs/input}" class="ui teal mini basic right floated button">新增</a>
                     </th>
                 </tr>
             </tfoot>
         </table>
+
+        <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+            <div class="header">提示: </div>
+            <p th:text="${message}">恭喜，操作成功</p>
+        </div>
+
         </div>
     </div>
 </div>
@@ -164,8 +173,7 @@
         $('.m-item').toggleClass('m-mobile-hide');
     });
 
-    $('.ui.dropdown').dropdown()
-    ;
+    $('.ui.dropdown').dropdown();
 
     function page(obj) {
         $("[name='page']").val($(obj).data("page"));
@@ -174,7 +182,7 @@
 
     $("#search-btn").click(function(){
         loaddata();
-    })
+    });
 
     function loaddata() {
         $("#table-container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
