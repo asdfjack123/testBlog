@@ -4,6 +4,7 @@ import com.jack.blog.NotFoundException;
 import com.jack.blog.dao.BlogRepository;
 import com.jack.blog.po.Blog;
 import com.jack.blog.po.Type;
+import com.jack.blog.util.MyBeanUtils;
 import com.jack.blog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +60,24 @@ public class BlogServiceImpl implements BlogService {
         },pageable);
     }
 
+    @Override
+    public Page<Blog> listBlog(Pageable pageable) {
+        return blogRepository.findAll(pageable);
+    }
+
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
-        blog.setCreateTime(new Date());
-        blog.setUpdateTime(new Date());
-        blog.setViews(0);
+
+        if(blog.getId()==null){
+            blog.setCreateTime(new Date());
+            blog.setUpdateTime(new Date());
+            blog.setViews(0);
+        }
+
+        else{
+            blog.setUpdateTime(new Date());
+        }
         return blogRepository.save(blog);
     }
 
@@ -75,7 +88,8 @@ public class BlogServiceImpl implements BlogService {
         if(blog1==null){
             throw new NotFoundException("該blog不存在");
         }
-        BeanUtils.copyProperties(blog,blog1);
+        BeanUtils.copyProperties(blog,blog1, MyBeanUtils.getNullPropertyNames(blog));
+        blog1.setUpdateTime(new Date());
         return blogRepository.save(blog1);
     }
 
