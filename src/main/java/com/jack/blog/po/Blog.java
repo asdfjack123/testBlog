@@ -1,5 +1,6 @@
 package com.jack.blog.po;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -198,6 +199,7 @@ public class Blog {
         return tagIds;
     }
 
+
     public void setTagIds(String tagIds) {
         this.tagIds = tagIds;
     }
@@ -205,6 +207,7 @@ public class Blog {
     public void init() {
         this.tagIds = tagsToIds(this.getTags());
     }
+
 
     //1,2,3
     private String tagsToIds(List<Tag> tags) {

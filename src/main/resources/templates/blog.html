@@ -43,32 +43,33 @@
         <div class="ui attached segment">
             <div class="ui horizontal link list">
                 <div class="item">
-                    <img src="https://picsum.photos/100/100?image=1005" alt=""
+                    <img src="https://picsum.photos/100/100?image=1005" th:src="@{${blog.user.avatar}}" alt=""
                          class="ui avatar image">
-                    <div class="content"><a href="#" class="header">張為傑</a></div>
+                    <div class="content"><a href="#" class="header"  th:text="${blog.user.nickname}">張為傑</a></div>
                 </div>
                 <div class="item">
-                    <i class="calendar icon"></i> 2019-11-28
+                    <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"> 2019-11-28</span>
                 </div>
                 <div class="item">
-                    <i class="eye icon"></i> 190
+                    <i class="eye icon"></i><span th:text="${blog.views}"> 190</span>
                 </div>
             </div>
         </div>
         <div class="ui attached segment">
             <!--圖片區域-->
-            <img src="https://picsum.photos/800/450?image=1005" alt="" class="ui fluid rounded image">
+            <img src="https://picsum.photos/800/450?image=1005" th:src="@{${blog.firstPicture}}"  alt="" class="ui fluid rounded image">
         </div>
         <div class="ui attached segment">
             <!--內容-->
             <div class="ui right aligned basic segment">
-                <div class="ui orange basic label">
+                <div class="ui orange basic label" th:text="${blog.flag}">
                     原創
                 </div>
             </div>
 
-            <h2 class="ui center aligned header">關於刻意練習的清單</h2>
-            <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
+            <h2 class="ui center aligned header" th:text="${blog.title}">關於刻意練習的清單</h2>
+            <!--中間內容部分-->
+            <div id="content" class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" th:utext="${blog.content}">
 
                 <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
 
@@ -461,33 +462,11 @@ h5,h6{font-size:1em;}
 
             <!--標籤-->
             <div class="m-padded-lr-responsive">
-                <div class="ui basic teal left pointing label">
+                <div class="ui basic teal left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}">
                     方法論
                 </div>
             </div>
-            <!--點讚-->
-            <div class="ui center aligned basic segment">
-                <button id="payButton" class="ui orange basic circular button">
-                    讚賞
-                </button>
-            </div>
 
-            <div class="ui payQR flowing popup transition hidden">
-                <div class="ui orange basic label">
-                    <div class="ui images" style="font-size: inherit !important;">
-                        <div class="image">
-                            <img src="../static/images/123.jpg" alt="" class="ui rounded bordered image"
-                                 style="width: 120px">
-                            <div>文字一</div>
-                        </div>
-                        <div class="image">
-                            <img src="../static/images/123.jpg" alt="" class="ui rounded bordered image"
-                                 style="width: 120px">
-                            <div>文字二</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
         </div>
@@ -495,15 +474,9 @@ h5,h6{font-size:1em;}
             <div class="ui middle aligned grid">
                 <div class="eleven wide column">
                     <ui class="list">
-                        <li>作者: 張為傑(聯繫作者)</li>
-                        <li>發表時間</li>
-                        <li>版權聲明</li>
-                        <li>公眾號轉載</li>
+                        <li>作者: <span th:text="${blog.user.nickname}">張為傑</span><a href="#" th:href="@{/about}" target="_blank">(聯繫作者)</a></li>
+                        <li>發表時間: <span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd HH:mm')}"></span></li>
                     </ui>
-                </div>
-                <div class="five wide column">
-                    <img src="../static/images/123.jpg" alt="" class="ui right floated  rounded bordered image"
-                         style="width: 110px">
                 </div>
             </div>
         </div>

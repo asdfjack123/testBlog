@@ -4,10 +4,12 @@ import com.jack.blog.NotFoundException;
 import com.jack.blog.dao.BlogRepository;
 import com.jack.blog.po.Blog;
 import com.jack.blog.po.Type;
+import com.jack.blog.util.MarkdownUtils;
 import com.jack.blog.util.MyBeanUtils;
 import com.jack.blog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -37,6 +39,19 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogRepository.findById(id).orElse(null);
+        if(blog==null){
+            throw new NotFoundException("該blog不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog,b);
+        String content = b.getContent();
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        return b;
     }
 
     @Override
@@ -92,6 +107,7 @@ public class BlogServiceImpl implements BlogService {
         else{
             blog.setUpdateTime(new Date());
         }
+        blog.setDescription(MarkdownUtils.markdownToText(blog.getContent()).substring(0,150) + "...");
         return blogRepository.save(blog);
     }
 
@@ -104,6 +120,7 @@ public class BlogServiceImpl implements BlogService {
         }
         BeanUtils.copyProperties(blog,blog1, MyBeanUtils.getNullPropertyNames(blog));
         blog1.setUpdateTime(new Date());
+        blog1.setDescription(MarkdownUtils.markdownToText(blog1.getContent()).substring(0,150) + "...");
         return blogRepository.save(blog1);
     }
 

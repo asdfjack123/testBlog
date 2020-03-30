@@ -42,12 +42,6 @@ public class indexController {
         return "index";
     }
 
-    @GetMapping("/blog")
-    public String blog() {
-        System.out.println("--------index---------");
-        return "blog";
-    }
-
     @PostMapping("/search")
     public String search(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                          Model model,@RequestParam String query){
@@ -55,5 +49,12 @@ public class indexController {
         model.addAttribute("query",query);
         return "search";
     }
+
+    @GetMapping("/blog/{id}")
+    public String blog(@PathVariable Long id,Model model) {
+        model.addAttribute("blog",blogService.getAndConvert(id));
+        return "blog";
+    }
+
 
 }
