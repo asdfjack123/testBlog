@@ -561,6 +561,8 @@ h5,h6{font-size:1em;}
                 </div>
             </div>
             <div class="ui form">
+                <input type="text" name="blog.id" th:value="${blog.id}">
+                <input type="text" name="parentComment.id" value="-1">
                 <div class="field">
                     <textarea name="content" placeholder="請輸入留言..."></textarea>
                 </div>
@@ -578,7 +580,7 @@ h5,h6{font-size:1em;}
                         </div>
                     </div>
                     <div class="field m-margin-bottom-small m-mobile-wide">
-                        <button class="ui teal button m-mobile-wide"><i class="edit icon"></i>發布</button>
+                        <button id="commentpost-btn" type="button" class="ui teal button m-mobile-wide"><i class="edit icon"></i>發布</button>
                     </div>
                 </div>
             </div>
@@ -672,6 +674,37 @@ h5,h6{font-size:1em;}
 
     $('#toTop-button').click(function () {
         $(window).scrollTo(0, 500);
+    });
+
+    //留言表單驗證
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'content',
+                rules: [{
+                    type: 'empty',
+                    prompt: '請輸入留言內容'
+                }
+                ]
+            },
+            content: {
+                identifier: 'nickname',
+                rules: [{
+                    type: 'empty',
+                    prompt: '請輸入大名'
+                }]
+            }
+        }
+    });
+
+    $('commentpost-btn').click(function () {
+        var boo = $('.ui.form').form('validate form');
+        if(boo){
+            console.log('驗證成功');
+        }
+        else{
+            console.log('驗證失敗');
+        }
     });
 
 </script>
