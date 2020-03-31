@@ -51,11 +51,6 @@ public class BlogController {
     public String search(@PageableDefault(size=3,sort = {"updateTime"},direction = Sort.Direction.DESC) Pageable pageable,
                          BlogQuery blog, Model model){
         model.addAttribute("page",blogService.listBlog(pageable,blog));
-
-//        System.out.println("----------");
-//        System.out.println(pageable);
-//        System.out.println("----------");
-
         return "admin/blogs :: blogList";
     }
 

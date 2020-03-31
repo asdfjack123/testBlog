@@ -120,9 +120,9 @@
                 <tr>
                     <th colspan="7">
                         <div class="ui mini pagination menu " th:if="${page.totalPages}>1">
-                            <a onclick="page(this)" th:attr="date-page=${page.number}-1" class="item"
+                            <a onclick="page(this)" th:attr="data-page=${page.number}-1" class="item"
                                th:unless="${page.first}">上一頁</a>
-                            <a onclick="page(this)" th:attr="date-page=${page.number}+1" class="item"
+                            <a onclick="page(this)" th:attr="data-page=${page.number}+1" class="item"
                                th:unless="${page.last}">下一頁</a>
                         </div>
 
@@ -195,7 +195,7 @@
     ;
 
     function page(obj) {
-        $("[name='page']").val($(obj).attr("date-page"));
+        $("[name='page']").val($(obj).attr("data-page"));
         loaddata();
     }
 
