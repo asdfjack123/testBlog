@@ -489,23 +489,24 @@ h5,h6{font-size:1em;}
                 <div th:fragment="commentList">
                     <div class="ui threaded comments" style="max-width: 100%;">
                         <h3 class="ui dividing header">留言</h3>
-                        <div class="comment">
+                        <div class="comment" th:each="comment : ${comments}">
                             <a class="avatar">
-                                <img src="https://picsum.photos/100/100?image=1005">
+                                <img src="https://picsum.photos/100/100?image=1005" th:src="@{${comment.avatar}}">
                             </a>
                             <div class="content">
-                                <a class="author">Matt</a>
+                                <a class="author" th:text="${comment.nickname}">Matt</a>
                                 <div class="metadata">
-                                    <span class="date">Today at 5:42PM</span>
+                                    <span class="date" th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
                                 </div>
-                                <div class="text">
+                                <div class="text" th:text="${comment.content}">
                                     How artistic!
                                 </div>
                                 <div class="actions">
-                                    <a class="reply" data-commentid="1" data-commentnickname="Matt" onclick="reply(this)">回覆</a>
+                                    <a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${comment.id},data-commentnickname=${comment.nickname}" onclick="reply(this)">回覆</a>
                                 </div>
                             </div>
                         </div>
+                        <!--/*-->
                         <div class="comment">
                             <a class="avatar">
                                 <img src="https://picsum.photos/100/100?image=1005">
@@ -559,7 +560,7 @@ h5,h6{font-size:1em;}
                                 </div>
                             </div>
                         </div>
-
+                        <!--*/-->
 
                     </div>
                 </div>
@@ -710,13 +711,14 @@ h5,h6{font-size:1em;}
         var boo = $('.ui.form').form('validate form');
         if (boo) {
             console.log('驗證成功');
+            postData();
         } else {
             console.log('驗證失敗');
         }
     });
 
     function postData() {
-        $("#comment-container").load(/*[[@{/comments}]]*/"", {
+        $("#comment-container").load(/*[[@{/comments}]]*/"/comments", {
             "parentComment.id": $("[name='parentComment.id']").val(),
             "blog.id": $("[name='blog.id']").val(),
             "nickname": $("[name='nickname']").val(),
@@ -724,7 +726,7 @@ h5,h6{font-size:1em;}
             "content": $("[name='content']").val()
         }, function (responseTxt, statusTxt, xhr) {
 //        $(window).scrollTo($('#comment-container'),500);
-            clearContent();
+            //clearContent();
         });
     }
 

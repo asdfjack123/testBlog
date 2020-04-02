@@ -3,6 +3,7 @@ package com.jack.blog.web;
 import com.jack.blog.NotFoundException;
 import com.jack.blog.po.Type;
 import com.jack.blog.service.BlogService;
+import com.jack.blog.service.CommentService;
 import com.jack.blog.service.TagService;
 import com.jack.blog.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class indexController {
 
     @Autowired
     private TagService tagService;
+
+    @Autowired
+    private CommentService commentService;
 
     //@GetMapping("/{id}/{name}")
     //public String index(@PathVariable Integer id,@PathVariable String name){
@@ -53,6 +57,7 @@ public class indexController {
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable Long id,Model model) {
         model.addAttribute("blog",blogService.getAndConvert(id));
+        model.addAttribute("comments",commentService.listCommentByBlogId(id));
         return "blog";
     }
 

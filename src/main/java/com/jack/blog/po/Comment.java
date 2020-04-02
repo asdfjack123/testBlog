@@ -17,7 +17,7 @@ public class Comment {
     private String avatar;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date creatTime;
+    private Date createTime;
 
     @ManyToOne
     private Blog blog;
@@ -71,12 +71,12 @@ public class Comment {
         this.avatar = avatar;
     }
 
-    public Date getCreatTime() {
-        return creatTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatTime(Date creatTime) {
-        this.creatTime = creatTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Blog getBlog() {
@@ -111,7 +111,7 @@ public class Comment {
                 ", email='" + email + '\'' +
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
-                ", creatTime=" + creatTime +
+                ", createTime=" + createTime +
                 '}';
     }
 }
