@@ -168,6 +168,11 @@ body {
     color: #333 !important;
 }
 
+.m-teal {
+    color: #0085AD !important;
+}
+
+
 .m-mobile-show {
     display: none !important;
 }
