@@ -97,13 +97,13 @@
             </div>
         </div>
         <!--content footer-->
-        <div class="ui bottom attached segment">
-            <div class="ui two column grid">
+        <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+            <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <a href="" class="ui mini teal basic button">上一頁</a>
+                    <a href="#" th:href="@{/(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini teal basic button">上一頁</a>
                 </div>
                 <div class="right aligned column">
-                    <a href="" class="ui mini teal basic button">下一頁</a>
+                    <a href="#" th:href="@{/(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini teal basic button">下一頁</a>
                 </div>
             </div>
         </div>
