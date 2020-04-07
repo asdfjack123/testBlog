@@ -458,13 +458,13 @@
                                 <i class="idea icon"></i>分類
                             </div>
                             <div class="right aligned column">
-                                <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                                <a href="#" th:href="@{/types}" target="_blank">more <i class="angle double right icon"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="ui teal segment">
                         <div class="ui fluid vertical menu">
-                            <a href="#" class="item" th:each="type : ${types}">
+                            <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item" th:each="type : ${types}">
                                 <span th:text="${type.name}">學習日誌</span>
                                 <div class="ui teal basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
                             </a>
@@ -501,12 +501,12 @@
                                 <i class="tags icon"></i>標籤
                             </div>
                             <div class="right aligned column">
-                                <a href="#" target="_blank">more <i class="angle double right icon"></i></a>
+                                <a href="#" th:href="@{/tags}" target="_blank">more <i class="angle double right icon"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="ui teal segment">
-                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}">
+                        <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}">
                             <span th:text="${tag.name}">方法論</span>
                             <div class="detail" th:text="${#arrays.length(tag.blogs)}">12</div>
                         </a>
@@ -610,10 +610,10 @@
     </div>
 </footer>
 
-
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
 <script src=" https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
+<!--/*/</th:block>/*/-->
 
 <script>
     $('.menu.toggle').click(function () {
