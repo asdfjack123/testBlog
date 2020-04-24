@@ -133,7 +133,11 @@ public class BlogServiceImpl implements BlogService {
         else{
             blog.setUpdateTime(new Date());
         }
-        blog.setDescription(MarkdownUtils.markdownToText(blog.getContent()).substring(0,150) + "...");
+        String s = MarkdownUtils.markdownToText(blog.getContent());
+        if (s.length()>=150){
+          s = s.substring(0,150);
+        }
+        blog.setDescription(s);
         return blogRepository.save(blog);
     }
 
@@ -146,7 +150,11 @@ public class BlogServiceImpl implements BlogService {
         }
         BeanUtils.copyProperties(blog,blog1, MyBeanUtils.getNullPropertyNames(blog));
         blog1.setUpdateTime(new Date());
-        blog1.setDescription(MarkdownUtils.markdownToText(blog1.getContent()).substring(0,150) + "...");
+        String s = MarkdownUtils.markdownToText(blog.getContent());
+        if (s.length()>=150){
+            s = s.substring(0,150);
+        }
+        blog1.setDescription(s);
         return blogRepository.save(blog1);
     }
 

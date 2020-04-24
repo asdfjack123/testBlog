@@ -54,8 +54,7 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("user");
-        //進到上面的loginPage()方法,最後return "admin/login";
-        return "redirect:/admin";
+        return "redirect:/";
     }
 
 }

@@ -25,7 +25,7 @@
             </div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              <a href="#" class="item">注销</a>
+              <a href="#" class="item">登出</a>
             </div>
           </div>
         </div>
@@ -52,11 +52,11 @@
         <div class="header">提示：</div>
         <p th:text="${message}">恭喜，操作成功！</p>
       </div>
-      <table class="ui compact teal table">
+      <table class="ui celled table">
         <thead>
           <tr>
             <th></th>
-            <th>名称</th>
+            <th>名稱</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -65,8 +65,8 @@
             <td th:text="${iterStat.count}">1</td>
             <td th:text="${type.name}">刻意練習清單</td>
             <td>
-              <a href="#" th:href="@{/admin/tags/{id}/input(id=${type.id})}" class="ui mini teal basic button">编辑</a>
-              <a href="#" th:href="@{/admin/tags/{id}/delete(id=${type.id})}" class="ui mini red basic button">删除</a>
+              <a href="#" th:href="@{/admin/tags/{id}/input(id=${type.id})}" class="ui mini teal basic button">編輯</a>
+              <a href="#" th:href="@{/admin/tags/{id}/delete(id=${type.id})}" class="ui mini red basic button">刪除</a>
             </td>
           </tr>
         </tbody>
@@ -74,8 +74,8 @@
           <tr>
             <th colspan="6" >
               <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                <a th:href="@{/admin/tags(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一页</a>
-                <a th:href="@{/admin/tags(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一页</a>
+                <a th:href="@{/admin/tags(page=${page.number}-1)}" class="  item" th:unless="${page.first}">上一頁</a>
+                <a th:href="@{/admin/tags(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一頁</a>
               </div>
               <a href="#" th:href="@{/admin/tags/input}"  class="ui mini right floated teal basic button">新增</a>
             </th>
