@@ -3,9 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="995f1d0b-af56-4b53-bbb2-ea197643fb8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/blog-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/types.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/types.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/dao/TypeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jack/blog/dao/TypeRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/po/Blog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jack/blog/po/Blog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/po/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jack/blog/po/Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/service/TypeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/service/TypeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/service/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/util/MD5Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/web/admin/BlogController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/web/admin/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/web/admin/TypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jack/blog/web/indexController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/me.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/me.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/typo.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/typo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/_fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/_fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/blogs-input.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/blogs-input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/blogs.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/blogs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/types.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/admin/types.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/archives.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/archives.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/types.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/types.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +46,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\asdfj\IdeaProjects\blog\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="ProjectId" id="1VEG6QLKy78QscMZ9nc89rsA7AI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -92,18 +106,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -128,6 +130,8 @@
       <workItem from="1578276686848" duration="5344000" />
       <workItem from="1578362470784" duration="4895000" />
       <workItem from="1578642382578" duration="1783000" />
+      <workItem from="1613631610377" duration="457000" />
+      <workItem from="1613697411978" duration="743000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1578365093934</created>
@@ -147,7 +151,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -159,6 +163,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
